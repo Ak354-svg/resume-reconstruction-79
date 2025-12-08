@@ -4,8 +4,8 @@
     <!-- ================= META & SEO ================= -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resume Reconstruction | Sunlit, Precise, ₹199</title>
-    <meta name="description" content="A warm, sunlit resume reconstruction experience for ₹199. Clean layout, precise wording, ATS-safe structure — designed to feel as fresh as a new morning." />
+    <title>Resume Reconstruction | Crewmate, Precise, ₹199</title>
+    <meta name="description" content="An Among Us–inspired resume reconstruction experience for ₹199. Dark space vibes, precise wording, ATS-safe structure — built so your resume looks non-sus." />
 
     <style>
         /* ================= BASE / RESET ================= */
@@ -14,20 +14,20 @@
         }
 
         :root {
-            --bg: #fffdf7;
-            --bg-soft: #fffaf0;
-            --surface: #ffffff;
-            --surface-soft: #fef7e8;
-            --border-soft: #e5e7eb;
-            --primary: #ffb347;      /* warm sun orange */
-            --primary-strong: #f59e0b;
-            --accent: #38bdf8;
-            --text-main: #111827;
-            --text-muted: #6b7280;
+            --bg: #020617;              /* deep space background */
+            --bg-soft: #020617;
+            --surface: #0b1120;         /* card surfaces */
+            --surface-soft: #020617;
+            --border-soft: #1f2937;
+            --primary: #ef4444;         /* crewmate red */
+            --primary-strong: #f97373;
+            --accent: #22d3ee;          /* cyan visor */
+            --text-main: #e5e7eb;
+            --text-muted: #9ca3af;
             --radius-lg: 22px;
             --radius-md: 16px;
-            --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
-            --shadow-subtle: 0 10px 28px rgba(15, 23, 42, 0.08);
+            --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.75);
+            --shadow-subtle: 0 10px 28px rgba(15, 23, 42, 0.6);
             --transition-fast: 0.18s ease-out;
         }
 
@@ -38,7 +38,10 @@
         body {
             margin: 0;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
-            background: radial-gradient(circle at top, #fff7e0 0, #fffdf7 45%, #f9fafb 100%);
+            background:
+                radial-gradient(circle at 10% 0%, #1d253a 0, transparent 55%),
+                radial-gradient(circle at 80% 100%, #111827 0, transparent 60%),
+                #020617;
             color: var(--text-main);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
@@ -105,16 +108,16 @@
             backdrop-filter: blur(18px);
             background: linear-gradient(
                 to bottom,
-                rgba(255, 250, 240, 0.96),
-                rgba(255, 250, 240, 0.9),
-                rgba(255, 250, 240, 0.8)
+                rgba(15, 23, 42, 0.96),
+                rgba(15, 23, 42, 0.9),
+                rgba(15, 23, 42, 0.85)
             );
-            border-bottom: 1px solid rgba(229, 231, 235, 0.9);
+            border-bottom: 1px solid rgba(31, 41, 55, 0.9);
             transition: box-shadow var(--transition-fast), background var(--transition-fast), transform 0.2s ease-out;
         }
 
         .nav.scrolled {
-            box-shadow: 0 10px 30px rgba(148, 163, 184, 0.45);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.85);
         }
 
         .nav-inner {
@@ -135,11 +138,22 @@
         .brand-icon {
             width: 32px;
             height: 32px;
+            border-radius: 40% 40% 45% 45%;
+            background: radial-gradient(circle at 30% 20%, #fecaca, #ef4444 45%, #991b1b 80%);
+            box-shadow: 0 8px 18px rgba(239, 68, 68, 0.7);
+            position: relative;
+        }
+
+        .brand-icon::before {
+            content: "";
+            position: absolute;
+            left: 6px;
+            top: 7px;
+            width: 20px;
+            height: 12px;
             border-radius: 999px;
-            background:
-                radial-gradient(circle at 30% 30%, #ffffff, #ffe8a3 35%, #ffb347 70%),
-                radial-gradient(circle at 70% 80%, #facc15, #f97316 75%);
-            box-shadow: 0 8px 18px rgba(248, 180, 44, 0.6);
+            background: radial-gradient(circle at 0 0, #f9fafb, #22d3ee);
+            box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.9);
         }
 
         .brand-text {
@@ -147,7 +161,7 @@
             font-size: 0.95rem;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: #92400e;
+            color: #e5e7eb;
         }
 
         .nav-links {
@@ -159,7 +173,7 @@
 
         .nav-links a {
             position: relative;
-            color: #4b5563;
+            color: #9ca3af;
             font-weight: 500;
         }
 
@@ -171,7 +185,7 @@
             width: 0;
             height: 2px;
             border-radius: 999px;
-            background: var(--primary-strong);
+            background: var(--accent);
             transition: width 0.2s ease-out;
         }
 
@@ -181,16 +195,16 @@
         }
 
         .nav-links a.active {
-            color: #1f2937;
+            color: #f9fafb;
         }
 
         .nav-cta {
             padding: 0.4rem 0.9rem;
             border-radius: 999px;
-            border: 1px solid var(--primary-strong);
-            color: #92400e;
+            border: 1px solid var(--accent);
+            color: #e5e7eb;
             font-weight: 600;
-            background: radial-gradient(circle at top, #fff7e0, #ffedd5);
+            background: radial-gradient(circle at top, rgba(34, 211, 238, 0.18), rgba(15, 23, 42, 0.9));
         }
 
         @media (max-width: 780px) {
@@ -210,9 +224,9 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(circle at 20% 0%, rgba(252, 211, 77, 0.45), transparent 55%),
-                radial-gradient(circle at 80% 20%, rgba(96, 165, 250, 0.35), transparent 55%),
-                radial-gradient(circle at 50% 100%, #fef3c7, #fdf2e9 80%);
+                radial-gradient(circle at 20% 0%, rgba(56, 189, 248, 0.3), transparent 55%),
+                radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.35), transparent 55%),
+                radial-gradient(circle at 50% 100%, #020617, #020617 80%);
             opacity: 0.9;
             z-index: 0;
         }
@@ -220,7 +234,7 @@
         .hero-orbit-layer {
             position: absolute;
             border-radius: 999px;
-            border: 1px solid rgba(252, 211, 77, 0.3);
+            border: 1px solid rgba(34, 211, 238, 0.25);
             pointer-events: none;
             will-change: transform;
         }
@@ -260,11 +274,11 @@
             gap: 0.4rem;
             padding: 0.22rem 0.8rem;
             border-radius: 999px;
-            background: rgba(255, 255, 255, 0.92);
-            border: 1px solid #fee2b3;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(34, 211, 238, 0.45);
             font-size: 0.78rem;
-            color: #92400e;
-            box-shadow: 0 10px 24px rgba(251, 191, 36, 0.3);
+            color: #e5e7eb;
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(14px);
             margin-bottom: 1.1rem;
         }
@@ -274,7 +288,7 @@
             height: 7px;
             border-radius: 999px;
             background: #22c55e;
-            box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.3);
+            box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.4);
         }
 
         .hero-title {
@@ -282,11 +296,11 @@
             font-weight: 800;
             letter-spacing: -0.035em;
             margin: 0 0 0.6rem;
-            color: #111827;
+            color: #f9fafb;
         }
 
         .hero-title span {
-            background: linear-gradient(135deg, #f97316, #eab308);
+            background: linear-gradient(135deg, #22d3ee, #a855f7);
             -webkit-background-clip: text;
             color: transparent;
         }
@@ -306,12 +320,12 @@
         .hero-price {
             font-size: 1.1rem;
             font-weight: 800;
-            color: #c05621;
+            color: #f97373;
         }
 
         .hero-meta {
             font-size: 0.82rem;
-            color: #9ca3af;
+            color: #6b7280;
             margin-bottom: 1.7rem;
         }
 
@@ -338,9 +352,9 @@
         }
 
         .btn-primary {
-            background: radial-gradient(circle at top, #facc15, #f97316);
-            color: #7c2d12;
-            box-shadow: 0 20px 50px rgba(248, 180, 44, 0.8);
+            background: radial-gradient(circle at top, #22d3ee, #ef4444);
+            color: #f9fafb;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.9);
             position: relative;
             overflow: hidden;
         }
@@ -349,7 +363,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.35), transparent 40%);
+            background: radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.25), transparent 40%);
             opacity: 0;
             transition: opacity 0.2s ease-out;
         }
@@ -360,18 +374,18 @@
 
         .btn-primary:hover {
             transform: translateY(-1px);
-            box-shadow: 0 24px 60px rgba(217, 119, 6, 0.9);
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 1);
         }
 
         .btn-ghost {
-            background: rgba(255, 255, 255, 0.9);
-            color: #374151;
-            border: 1px solid #e5e7eb;
+            background: rgba(15, 23, 42, 0.9);
+            color: #e5e7eb;
+            border: 1px solid #1f2937;
         }
 
         .btn-ghost:hover {
-            background: #fffbeb;
-            border-color: #fed7aa;
+            background: rgba(31, 41, 55, 1);
+            border-color: rgba(55, 65, 81, 1);
             transform: translateY(-1px);
         }
 
@@ -381,7 +395,7 @@
         }
 
         .hero-subnote span {
-            color: #b45309;
+            color: #22d3ee;
             font-weight: 500;
         }
 
@@ -399,10 +413,10 @@
         }
 
         .tilt-card {
-            background: radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.75), #fff7ed);
+            background: radial-gradient(circle at 0% 0%, rgba(15, 23, 42, 0.9), #020617);
             border-radius: var(--radius-lg);
             padding: 1.4rem 1.45rem 1.2rem;
-            border: 1px solid #fed7aa;
+            border: 1px solid #1f2937;
             box-shadow: var(--shadow-soft);
             position: relative;
             transform-style: preserve-3d;
@@ -416,10 +430,10 @@
             border-radius: inherit;
             background: conic-gradient(
                 from 220deg,
-                rgba(251, 191, 36, 0.7),
-                rgba(249, 115, 22, 0.7),
-                rgba(96, 165, 250, 0.7),
-                rgba(251, 191, 36, 0.7)
+                rgba(239, 68, 68, 0.55),
+                rgba(34, 211, 238, 0.55),
+                rgba(129, 140, 248, 0.65),
+                rgba(239, 68, 68, 0.55)
             );
             opacity: 0;
             filter: blur(20px);
@@ -428,7 +442,7 @@
         }
 
         .tilt-card:hover::before {
-            opacity: 0.35;
+            opacity: 0.45;
         }
 
         .tilt-header {
@@ -442,23 +456,23 @@
             font-size: 0.78rem;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: #9a3412;
+            color: #9ca3af;
         }
 
         .tilt-pill {
             font-size: 0.68rem;
             padding: 0.1rem 0.6rem;
             border-radius: 999px;
-            background: #ecfdf3;
-            border: 1px solid #6ee7b7;
-            color: #166534;
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(45, 212, 191, 0.8);
+            color: #a7f3d0;
         }
 
         .tilt-title {
             margin: 0.1rem 0 0.5rem;
             font-size: 1.05rem;
             font-weight: 600;
-            color: #7c2d12;
+            color: #f9fafb;
         }
 
         .tilt-copy {
@@ -478,9 +492,9 @@
             font-size: 0.7rem;
             padding: 0.15rem 0.6rem;
             border-radius: 999px;
-            border: 1px solid #fecaca;
-            color: #9a3412;
-            background: #fff7ed;
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            color: #e5e7eb;
+            background: rgba(15, 23, 42, 0.9);
         }
 
         .before-after {
@@ -500,21 +514,21 @@
             border-radius: 0.9rem;
             padding: 0.7rem 0.75rem 0.78rem;
             font-size: 0.78rem;
-            border: 1px dashed #e5e7eb;
-            background: #f9fafb;
+            border: 1px dashed #1f2937;
+            background: #020617;
         }
 
         .snippet.bad {
             border-style: dashed;
-            color: #b91c1c;
-            background: #fef2f2;
+            color: #fca5a5;
+            background: rgba(127, 29, 29, 0.35);
         }
 
         .snippet.good {
             border-style: solid;
-            border-color: #4ade80;
-            color: #166534;
-            background: #ecfdf3;
+            border-color: #22c55e;
+            color: #bbf7d0;
+            background: rgba(5, 46, 22, 0.65);
         }
 
         .snippet-label {
@@ -524,11 +538,11 @@
         }
 
         .snippet-label.bad {
-            color: #b91c1c;
+            color: #fecaca;
         }
 
         .snippet-label.good {
-            color: #16a34a;
+            color: #4ade80;
         }
 
         .tilt-footer {
@@ -544,7 +558,7 @@
             bottom: 0.6rem;
             transform: translateX(-50%);
             font-size: 0.75rem;
-            color: #9ca3af;
+            color: #6b7280;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -597,7 +611,7 @@
 
         .feature-card:hover {
             transform: translateY(4px);
-            box-shadow: 0 18px 35px rgba(148, 163, 184, 0.4);
+            box-shadow: 0 18px 35px rgba(15, 23, 42, 0.9);
         }
 
         .feature-image-wrap {
@@ -610,6 +624,7 @@
             height: 100%;
             object-fit: cover;
             transform: scale(1.03);
+            filter: saturate(1.15);
             transition: transform 0.5s ease;
         }
 
@@ -628,7 +643,7 @@
             font-size: 0.7rem;
             letter-spacing: 0.16em;
             text-transform: uppercase;
-            color: #b45309;
+            color: #22d3ee;
             margin-bottom: 0.25rem;
         }
 
@@ -646,7 +661,7 @@
 
         /* ================= PROCESS ================= */
         .process {
-            background: #fffdf7;
+            background: #020617;
         }
 
         .process-grid {
@@ -662,10 +677,10 @@
         }
 
         .step-card {
-            background: var(--surface-soft);
+            background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), #020617);
             border-radius: var(--radius-md);
             padding: 1.1rem 1.1rem 1.1rem;
-            border: 1px solid #fed7aa;
+            border: 1px solid #1f2937;
             position: relative;
             overflow: hidden;
             opacity: 0;
@@ -678,7 +693,7 @@
             top: -8px;
             font-size: 3.4rem;
             font-weight: 800;
-            color: rgba(252, 211, 77, 0.5);
+            color: rgba(55, 65, 81, 0.6);
         }
 
         .step-label {
@@ -688,9 +703,9 @@
             border-radius: 999px;
             padding: 0.1rem 0.6rem;
             font-size: 0.72rem;
-            background: #fffbeb;
-            color: #b45309;
-            border: 1px solid #fed7aa;
+            background: rgba(15, 23, 42, 0.9);
+            color: #e5e7eb;
+            border: 1px solid #1f2937;
             margin-bottom: 0.35rem;
         }
 
@@ -707,16 +722,16 @@
 
         /* ================= PRICING ================= */
         .pricing {
-            background: #fffaf0;
+            background: #020617;
         }
 
         .pricing-card {
             max-width: 640px;
             margin: 0 auto;
-            background: radial-gradient(circle at top left, #fffbeb, #fee2b3);
+            background: radial-gradient(circle at top left, rgba(34, 211, 238, 0.18), rgba(15, 23, 42, 1));
             border-radius: var(--radius-lg);
             padding: 1.7rem 1.8rem 1.5rem;
-            border: 1px solid #fed7aa;
+            border: 1px solid #1f2937;
             box-shadow: var(--shadow-soft);
             display: grid;
             grid-template-columns: 1.4fr 1fr;
@@ -754,9 +769,9 @@
             font-size: 0.75rem;
             padding: 0.18rem 0.7rem;
             border-radius: 999px;
-            background: #fef3c7;
-            border: 1px solid #facc15;
-            color: #b45309;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            color: #e5e7eb;
         }
 
         .pricing-right {
@@ -772,7 +787,7 @@
         .price-main {
             font-size: 2.2rem;
             font-weight: 800;
-            color: #b45309;
+            color: #f97373;
         }
 
         .price-main span {
@@ -789,15 +804,15 @@
 
         /* ================= TESTIMONIALS ================= */
         .testimonials {
-            background: radial-gradient(circle at top, #fffbeb, #fffdf7 55%, #fefce8 100%);
+            background: radial-gradient(circle at top, rgba(34, 211, 238, 0.18), #020617 55%, #020617 100%);
         }
 
         .test-gradient {
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(circle at 10% 0%, rgba(252, 211, 77, 0.25), transparent 55%),
-                radial-gradient(circle at 100% 100%, rgba(96, 165, 250, 0.2), transparent 55%);
+                radial-gradient(circle at 10% 0%, rgba(34, 211, 238, 0.25), transparent 55%),
+                radial-gradient(circle at 100% 100%, rgba(129, 140, 248, 0.35), transparent 55%);
             opacity: 0.9;
             z-index: 0;
         }
@@ -820,10 +835,10 @@
         }
 
         .test-card {
-            background: rgba(255, 255, 255, 0.96);
+            background: rgba(15, 23, 42, 0.96);
             border-radius: var(--radius-md);
             padding: 1rem 1.1rem 1rem;
-            border: 1px solid #fed7aa;
+            border: 1px solid #1f2937;
             box-shadow: var(--shadow-subtle);
             position: relative;
             opacity: 0;
@@ -835,20 +850,20 @@
             right: 14px;
             top: 8px;
             font-size: 2.1rem;
-            color: rgba(245, 158, 11, 0.6);
+            color: rgba(148, 163, 184, 0.8);
         }
 
         .test-text {
             font-size: 0.9rem;
             font-style: italic;
             margin-bottom: 0.8rem;
-            color: #374151;
+            color: #e5e7eb;
         }
 
         .test-name {
             font-size: 0.84rem;
             font-weight: 600;
-            color: #92400e;
+            color: #22d3ee;
         }
 
         .test-role {
@@ -858,7 +873,7 @@
 
         /* ================= FAQ ================= */
         .faq {
-            background: #fffdf7;
+            background: #020617;
         }
 
         .faq-grid {
@@ -869,10 +884,10 @@
         }
 
         .faq-item {
-            background: #ffffff;
+            background: #0b1120;
             border-radius: 14px;
             padding: 0.85rem 1rem;
-            border: 1px solid #e5e7eb;
+            border: 1px solid #1f2937;
             opacity: 0;
             transform: translateY(18px);
         }
@@ -890,7 +905,7 @@
 
         /* ================= CONTACT ================= */
         .contact {
-            background: #fffbeb;
+            background: radial-gradient(circle at top, rgba(129, 140, 248, 0.18), #020617);
         }
 
         .contact-inner {
@@ -914,7 +929,7 @@
         }
 
         .contact-details a {
-            color: #b45309;
+            color: #22d3ee;
             text-decoration: underline;
         }
 
@@ -930,9 +945,9 @@
             font-size: 0.76rem;
             padding: 0.18rem 0.7rem;
             border-radius: 999px;
-            border: 1px solid #fed7aa;
-            background: #fffbeb;
-            color: #b45309;
+            border: 1px solid #1f2937;
+            background: rgba(15, 23, 42, 0.9);
+            color: #e5e7eb;
         }
 
         /* ================= FOOTER ================= */
@@ -941,12 +956,12 @@
             text-align: center;
             font-size: 0.78rem;
             color: var(--text-muted);
-            border-top: 1px solid #e5e7eb;
-            background: #fffdf7;
+            border-top: 1px solid #1f2937;
+            background: #020617;
         }
 
         footer span {
-            color: #92400e;
+            color: #22d3ee;
             margin-left: 0.3rem;
         }
 
@@ -961,11 +976,11 @@
             gap: 0.35rem;
             padding: 0.65rem 1.1rem;
             border-radius: 999px;
-            background: radial-gradient(circle at 0 0, #ffffff, #ffb347);
-            color: #7c2d12;
+            background: radial-gradient(circle at 0 0, #22d3ee, #ef4444);
+            color: #f9fafb;
             font-size: 0.82rem;
             font-weight: 600;
-            box-shadow: 0 18px 40px rgba(248, 180, 44, 0.8);
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.95);
             cursor: pointer;
             border: none;
             transform-origin: center;
@@ -1003,7 +1018,7 @@
         <div class="nav-inner">
             <div class="brand">
                 <div class="brand-icon"></div>
-                <span class="brand-text">SUNLIT RESUME</span>
+                <span class="brand-text">CREWMATE RESUME</span>
             </div>
             <div class="nav-links" id="nav-links">
                 <a href="#hero" class="active">Overview</a>
@@ -1028,25 +1043,25 @@
                 <div class="hero-left reveal" data-delay="0">
                     <div class="hero-badge">
                         <div class="hero-badge-dot"></div>
-                        <span>Morning-light clarity for your resume — in 48 hours.</span>
+                        <span>Make your resume look non-sus — in 48 hours.</span>
                     </div>
 
                     <h1 class="hero-title">
-                        A sunlit <span>Resume Reconstruction</span> for just ₹199.
+                        An <span>Among Us–inspired</span> Resume Reconstruction for just ₹199.
                     </h1>
 
                     <p class="hero-lead">
-                        Think of it as a fresh sunrise for your resume. We rebuild the layout, wording, and structure so it feels
-                        light, intentional, and aligned with where you’re headed.
+                        Think of it like joining the right crew. We rebuild the layout, wording, and structure so your resume
+                        looks sharp, intentional, and clearly aligned with the roles you’re targeting.
                     </p>
 
                     <p class="hero-price-line">
-                        Flat price: <span class="hero-price">₹199</span> per resume. Nothing hidden behind the horizon.
+                        Flat price: <span class="hero-price">₹199</span> per resume. No secret impostor fees.
                     </p>
 
                     <p class="hero-meta">
-                        Designed for students, freshers, and early-career talent who want their first impression to feel bright,
-                        clear, and thoughtfully put together.
+                        Designed for students, freshers, and early-career talent who want their first impression to feel
+                        confident, clear, and recruiter-friendly.
                     </p>
 
                     <div class="hero-ctas">
@@ -1069,14 +1084,14 @@
                         <div class="tilt-card" id="tilt-card">
                             <div class="tilt-header">
                                 <div>
-                                    <div class="tilt-label">Preview the glow-up</div>
+                                    <div class="tilt-label">Scan like a pro crew</div>
                                     <h2 class="tilt-title">What we do to your bullet points</h2>
                                 </div>
                                 <div class="tilt-pill">Before → After</div>
                             </div>
                             <p class="tilt-copy">
-                                We don’t “decorate” your resume. We clarify it. Responsibilities turn into clear outcomes, with
-                                language tuned to the roles you’re actually targeting.
+                                We don’t just decorate your resume. We de-sus it. Responsibilities turn into measurable
+                                outcomes, with language tuned to the roles you’re actually targeting.
                             </p>
 
                             <div class="tilt-badges">
@@ -1105,7 +1120,7 @@
 
                             <p class="tilt-footer">
                                 The same care is applied to experience, projects, education, and skills — so your whole resume
-                                feels cohesive, not patched together.
+                                feels cohesive, not cobbled together like a last-minute emergency task.
                             </p>
                         </div>
                     </div>
@@ -1124,8 +1139,8 @@
         <div class="container">
             <h2 class="section-title">What You Get</h2>
             <p class="section-subtitle">
-                A complete reconstruction — not just a new template. Every part of your resume is re-evaluated through the
-                lens of clarity and relevance.
+                A complete reconstruction — not just a new template. Every part of your resume is re-evaluated so it passes a
+                recruiter scan without raising any “sus” flags.
             </p>
 
             <div class="features-grid">
@@ -1135,10 +1150,10 @@
                     </div>
                     <div class="feature-body">
                         <div class="feature-tag">Layout · Structure</div>
-                        <h3 class="feature-title">Bright, minimal layout</h3>
+                        <h3 class="feature-title">Clean, mission-ready layout</h3>
                         <p class="feature-text">
-                            A clean, airy design that’s easy on the eyes and quick to scan. No heavy blocks, no noisy elements —
-                            just a structure that feels fresh and professional.
+                            A focused, easy-to-scan design with clear sections and hierarchy. No visual noise — just a layout
+                            that looks like it belongs in the short-list, not the airlock.
                         </p>
                     </div>
                 </article>
@@ -1151,8 +1166,8 @@
                         <div class="feature-tag">Language · Clarity</div>
                         <h3 class="feature-title">Clear, outcome-led wording</h3>
                         <p class="feature-text">
-                            We rewrite vague tasks into clear outcomes, using simple, confident wording that sounds like you —
-                            just sharper and more focused.
+                            We rewrite vague tasks into impact-focused bullets, using simple, confident language that sounds like
+                            you — just sharper and more targeted.
                         </p>
                     </div>
                 </article>
@@ -1163,10 +1178,10 @@
                     </div>
                     <div class="feature-body">
                         <div class="feature-tag">Direction · Fit</div>
-                        <h3 class="feature-title">Aligned with your next move</h3>
+                        <h3 class="feature-title">Aligned with your next mission</h3>
                         <p class="feature-text">
                             Whether it’s Marketing, Data, Software, Product, or Design, we adjust the resume to match that
-                            direction — so recruiters see a clear story, not random experiences.
+                            direction — so recruiters see a clear story, not random tasks floating in space.
                         </p>
                     </div>
                 </article>
@@ -1179,7 +1194,8 @@
         <div class="container">
             <h2 class="section-title">How It Works</h2>
             <p class="section-subtitle">
-                A simple, three-step flow that keeps you out of complicated portals and forms — just a direct, human service.
+                A simple, three-step flow. No complicated portals, no ghosting — just a direct, human service that gets you a
+                resume ready for launch.
             </p>
 
             <div class="process-grid">
@@ -1191,7 +1207,7 @@
                     <h3 class="step-title">Send your existing resume or raw details</h3>
                     <p class="step-text">
                         Email or WhatsApp your current resume. If you don’t have one yet, just send your education, skills,
-                        projects, internships, and any experience you’ve got.
+                        projects, internships, and any experience you’ve got — we’ll assemble it like a proper crew profile.
                     </p>
                 </div>
 
@@ -1203,7 +1219,7 @@
                     <h3 class="step-title">We rebuild layout, order, and wording</h3>
                     <p class="step-text">
                         We refine every section: rewriting bullets, reordering content, clarifying skills, and making sure the
-                        overall flow matches your target roles.
+                        overall flow matches your target roles instead of looking like a random lobby.
                     </p>
                 </div>
 
@@ -1212,10 +1228,10 @@
                     <div class="step-label">
                         <span>Deliver & refine</span>
                     </div>
-                    <h3 class="step-title">You receive your sunlit resume</h3>
+                    <h3 class="step-title">You receive your crew-approved resume</h3>
                     <p class="step-text">
                         You get a polished PDF plus an editable version, along with simple tips on how to tweak it for
-                        different job descriptions going forward.
+                        different job descriptions — like switching maps without switching your whole playstyle.
                     </p>
                 </div>
             </div>
@@ -1227,7 +1243,7 @@
         <div class="container">
             <h2 class="section-title">One Clear Price</h2>
             <p class="section-subtitle">
-                No confusing tiers, no upsell ladder. Just one honest price that covers the entire reconstruction.
+                No confusing tiers, no hidden impostor add-ons. Just one honest price that covers the entire reconstruction.
             </p>
 
             <div class="pricing-card reveal" data-delay="0">
@@ -1248,7 +1264,7 @@
                         <span>₹</span>199
                     </div>
                     <div class="price-note">
-                        One-time per resume.<br />No extra “review fee”, no hidden add-ons.
+                        One-time per resume.<br />No extra “review fee”, no surprise charges.
                     </div>
                 </div>
             </div>
@@ -1261,7 +1277,8 @@
         <div class="container test-inner">
             <h2 class="section-title">What People Notice</h2>
             <p class="section-subtitle">
-                A couple of real reactions from people who went from quietly applying to confidently sending out their resume.
+                A couple of real reactions from people who went from quietly applying to confidently sending out their resume
+                like a proud crewmate hitting “Start”.
             </p>
 
             <div class="test-grid">
@@ -1269,7 +1286,7 @@
                     <div class="quote-icon">“</div>
                     <p class="test-text">
                         I got more responses in two weeks than I had in the two months before. Same experience, but the new
-                        resume made it look clear, focused, and easy to understand.
+                        resume made it look clear, focused, and easy to understand — nothing sus anywhere.
                     </p>
                     <div class="test-name">Job Seeker</div>
                     <div class="test-role">Transitioning into Marketing</div>
@@ -1278,8 +1295,8 @@
                 <article class="test-card reveal" data-delay="120">
                     <div class="quote-icon">“</div>
                     <p class="test-text">
-                        It looks like something from a really high-end service, honestly. For ₹199, the design and wording
-                        changes feel way above what I expected.
+                        It looks like something from a premium service, honestly. For ₹199, the design and wording changes feel
+                        way beyond what I expected from a “simple resume fix”.
                     </p>
                     <div class="test-name">Marketing Graduate</div>
                     <div class="test-role">Entry-level Applicant</div>
@@ -1329,7 +1346,7 @@
     <section class="contact" id="contact">
         <div class="container">
             <div class="contact-inner reveal" data-delay="0">
-                <h2 class="section-title">Ready for a Fresh Start?</h2>
+                <h2 class="section-title">Ready to Join the Short-List Crew?</h2>
                 <p class="contact-text">
                     Share your existing resume (or your raw details) and your target role. We’ll handle the rest and send you
                     back something you’ll actually feel good about sending.
@@ -1362,13 +1379,13 @@
 
     <!-- ================ FOOTER ================= -->
     <footer>
-        © 2025 Sunlit Resume Reconstruction Service — Designed like a fresh morning launch.
-        <span>One bright step closer to your next opportunity.</span>
+        © 2025 Crewmate Resume Reconstruction Service — Built for serious missions.
+        <span>No more sus resumes in the recruiter’s inbox.</span>
     </footer>
 
     <!-- ================ FLOATING CTA ================= -->
     <button class="floating-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-        <span>₹199 · Rebuild my resume</span>
+        <span>₹199 · Fix my sus resume</span>
     </button>
 
     <!-- ================ JS: ANIMATIONS ================= -->
@@ -1440,14 +1457,14 @@
                 const rotateX = -((y - halfH) / halfH) * strength;
 
                 card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(6px)`;
-                card.style.boxShadow = "0 24px 60px rgba(248, 180, 44, 0.65)";
-                card.style.borderColor = "#facc15";
+                card.style.boxShadow = "0 24px 60px rgba(15, 23, 42, 1)";
+                card.style.borderColor = "#22d3ee";
             }
 
             function handleLeave() {
                 card.style.transform = "rotateX(0deg) rotateY(0deg) translateZ(0)";
-                card.style.boxShadow = "0 18px 45px rgba(15, 23, 42, 0.12)";
-                card.style.borderColor = "#fed7aa";
+                card.style.boxShadow = "0 18px 45px rgba(15, 23, 42, 0.75)";
+                card.style.borderColor = "#1f2937";
             }
 
             card.addEventListener("mousemove", handleMove);
@@ -1490,6 +1507,7 @@
     </script>
 </body>
 </html>
+
 
 
 
