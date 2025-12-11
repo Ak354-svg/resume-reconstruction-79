@@ -4,8 +4,8 @@
     <!-- ================= META & SEO ================= -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resume Reconstruction | ₹199</title>
-    <meta name="description" content="A minimal, precise resume reconstruction service for ₹199. Clean layout, clear wording, ATS-aware structure." />
+    <title>Resume Reconstruction | ₹199 Year-End Offer</title>
+    <meta name="description" content="A minimal, precise resume reconstruction service for ₹199 (down from ₹299). Clean layout, clear wording, ATS-aware structure." />
 
     <style>
         /* ================= BASE / RESET ================= */
@@ -22,6 +22,8 @@
             --primary: #111827;
             --primary-strong: #000000;
             --accent: #0071e3; /* Apple-like blue */
+            --accent-soft: rgba(56, 189, 248, 0.25);
+            --accent-warm: rgba(251, 146, 60, 0.25);
             --text-main: #111827;
             --text-muted: #6b7280;
             --radius-lg: 24px;
@@ -133,6 +135,16 @@
             height: 26px;
             border-radius: 6px;
             background: linear-gradient(135deg, #111827, #4b5563);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .brand-icon::after {
+            content: "";
+            position: absolute;
+            inset: 4px;
+            border-radius: 4px;
+            border: 1px solid rgba(249, 250, 251, 0.4);
         }
 
         .brand-text {
@@ -195,6 +207,38 @@
         .hero {
             padding: 4.5rem 0 4rem;
             position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative gradient blobs */
+        .hero::before,
+        .hero::after {
+            content: "";
+            position: absolute;
+            border-radius: 999px;
+            filter: blur(18px);
+            opacity: 0.7;
+            z-index: -1;
+        }
+
+        .hero::before {
+            width: 360px;
+            height: 360px;
+            right: -120px;
+            top: -140px;
+            background:
+                radial-gradient(circle at 30% 30%, rgba(56, 189, 248, 0.6), transparent 65%),
+                radial-gradient(circle at 70% 70%, rgba(129, 140, 248, 0.5), transparent 65%);
+        }
+
+        .hero::after {
+            width: 320px;
+            height: 320px;
+            left: -120px;
+            bottom: -140px;
+            background:
+                radial-gradient(circle at 30% 70%, rgba(251, 191, 36, 0.45), transparent 65%),
+                radial-gradient(circle at 70% 30%, rgba(52, 211, 153, 0.4), transparent 65%);
         }
 
         .hero-inner {
@@ -221,7 +265,7 @@
             border: 1px solid #e5e5ea;
             font-size: 0.78rem;
             color: #374151;
-            margin-bottom: 1.2rem;
+            margin-bottom: 0.6rem;
         }
 
         .hero-badge-dot {
@@ -229,6 +273,27 @@
             height: 7px;
             border-radius: 999px;
             background: #22c55e;
+        }
+
+        .hero-badge-offer {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.18rem 0.8rem;
+            border-radius: 999px;
+            background: rgba(37, 99, 235, 0.06);
+            border: 1px solid rgba(37, 99, 235, 0.18);
+            font-size: 0.78rem;
+            color: #1d4ed8;
+            margin-bottom: 0.9rem;
+        }
+
+        .hero-badge-offer span {
+            font-weight: 500;
+        }
+
+        .hero-badge-offer .spark {
+            font-size: 0.86rem;
         }
 
         .hero-title {
@@ -254,6 +319,13 @@
         .hero-price-line {
             font-size: 0.95rem;
             margin-bottom: 0.4rem;
+        }
+
+        .hero-price-old {
+            text-decoration: line-through;
+            color: #9ca3af;
+            margin-right: 0.35rem;
+            font-weight: 500;
         }
 
         .hero-price {
@@ -343,12 +415,22 @@
             box-shadow: var(--shadow-soft);
             position: relative;
             transition: transform 0.18s ease-out, box-shadow 0.18s ease-out, border-color 0.18s ease-out;
+            overflow: hidden;
         }
 
         .tilt-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 26px 70px rgba(15, 23, 42, 0.18);
             border-color: #d4d4d8;
+        }
+
+        /* Colorful accent strip on top of card */
+        .tilt-accent-strip {
+            height: 4px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #3b82f6, #22c55e, #f97316, #ec4899);
+            margin-bottom: 0.9rem;
+            opacity: 0.95;
         }
 
         .tilt-header {
@@ -511,12 +593,28 @@
             box-shadow: var(--shadow-subtle);
             transform: translateY(18px);
             opacity: 0;
-            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+            position: relative;
+        }
+
+        .feature-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.2), transparent 45%);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease-out;
         }
 
         .feature-card:hover {
             transform: translateY(4px);
             box-shadow: 0 18px 35px rgba(148, 163, 184, 0.35);
+            border-color: rgba(129, 140, 248, 0.4);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
         }
 
         .feature-image-wrap {
@@ -591,6 +689,18 @@
             transform: translateY(18px);
         }
 
+        .step-card::before {
+            content: "";
+            position: absolute;
+            left: -40px;
+            top: -40px;
+            width: 120px;
+            height: 120px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.14), transparent 65%);
+            pointer-events: none;
+        }
+
         .step-num {
             position: absolute;
             right: 16px;
@@ -643,12 +753,29 @@
             align-items: center;
             opacity: 0;
             transform: translateY(18px);
+            position: relative;
+            overflow: hidden;
         }
 
         @media (max-width: 720px) {
             .pricing-card {
                 grid-template-columns: 1fr;
             }
+        }
+
+        /* Year-end ribbon */
+        .pricing-ribbon {
+            position: absolute;
+            right: -64px;
+            top: 18px;
+            transform: rotate(36deg);
+            background: linear-gradient(135deg, #f97316, #ec4899);
+            color: #fefce8;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.13em;
+            padding: 0.3rem 3.6rem;
+            box-shadow: 0 10px 20px rgba(248, 113, 113, 0.45);
         }
 
         .pricing-left h3 {
@@ -690,21 +817,42 @@
         }
 
         .price-main {
+            display: inline-flex;
+            align-items: flex-end;
+            gap: 0.6rem;
+        }
+
+        .price-old {
+            font-size: 1.1rem;
+            color: #9ca3af;
+            text-decoration: line-through;
+            font-weight: 500;
+        }
+
+        .price-new {
             font-size: 2.3rem;
             font-weight: 600;
             color: #111827;
+            line-height: 1;
         }
 
-        .price-main span {
+        .price-new span {
             font-size: 1.18rem;
             vertical-align: super;
             margin-right: 2px;
         }
 
+        .price-tagline {
+            font-size: 0.78rem;
+            color: #16a34a;
+            margin-top: 0.35rem;
+            font-weight: 500;
+        }
+
         .price-note {
             font-size: 0.8rem;
             color: var(--text-muted);
-            margin-top: 0.35rem;
+            margin-top: 0.1rem;
         }
 
         /* ================= TESTIMONIALS ================= */
@@ -715,6 +863,15 @@
         .test-inner {
             position: relative;
             z-index: 1;
+        }
+
+        .test-inner::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 10% 0%, rgba(59, 130, 246, 0.28), transparent 55%);
+            opacity: 0.25;
+            z-index: -1;
         }
 
         .test-grid {
@@ -937,6 +1094,12 @@
                         <span>Structured, recruiter-ready resumes — in 48 hours.</span>
                     </div>
 
+                    <div class="hero-badge-offer">
+                        <span class="spark">✨</span>
+                        <span>Year-end offer</span>
+                        <span>₹299 → ₹199</span>
+                    </div>
+
                     <h1 class="hero-title">
                         Resume reconstruction.
                         <span>Clear. Modern. ₹199.</span>
@@ -948,7 +1111,9 @@
                     </p>
 
                     <p class="hero-price-line">
-                        Flat price: <span class="hero-price">₹199</span> per resume.
+                        Flat price:
+                        <span class="hero-price-old">₹299</span>
+                        <span class="hero-price">₹199</span> per resume.
                     </p>
 
                     <p class="hero-meta">
@@ -965,7 +1130,7 @@
                     </div>
 
                     <p class="hero-subnote">
-                        <span>48-hour turnaround</span> · PDF + editable file · ATS-aware structure.
+                        <span>48-hour turnaround</span> · PDF + editable file · ATS-aware structure · Limited-time year-end pricing.
                     </p>
                 </div>
 
@@ -973,6 +1138,7 @@
                 <div class="hero-right reveal" data-delay="120">
                     <div class="tilt-shell">
                         <div class="tilt-card" id="tilt-card">
+                            <div class="tilt-accent-strip"></div>
                             <div class="tilt-header">
                                 <div>
                                     <div class="tilt-label">Before / After</div>
@@ -1130,12 +1296,13 @@
     <!-- ================ PRICING ================= -->
     <section class="pricing" id="pricing">
         <div class="container">
-            <h2 class="section-title">One Simple Price</h2>
+            <h2 class="section-title">One Simple Year-End Price</h2>
             <p class="section-subtitle">
-                No tiers, no upsells. One clear price that covers the entire reconstruction.
+                No tiers, no upsells. One clear price that covers the entire reconstruction — with a limited-time year-end discount.
             </p>
 
             <div class="pricing-card reveal" data-delay="0">
+                <div class="pricing-ribbon">Year-end offer</div>
                 <div class="pricing-left">
                     <h3>Resume Reconstruction · Single Resume</h3>
                     <p>
@@ -1146,12 +1313,15 @@
                         <span class="pricing-badge">1–2 page resume</span>
                         <span class="pricing-badge">PDF + editable file</span>
                         <span class="pricing-badge">ATS-aware formatting</span>
+                        <span class="pricing-badge">Year-end discount applied</span>
                     </div>
                 </div>
                 <div class="pricing-right">
                     <div class="price-main">
-                        <span>₹</span>199
+                        <span class="price-old">₹299</span>
+                        <span class="price-new"><span>₹</span>199</span>
                     </div>
+                    <div class="price-tagline">Save ₹100 on your first reconstruction.</div>
                     <div class="price-note">
                         One-time per resume.<br />No hidden fees or add-ons.
                     </div>
@@ -1222,7 +1392,7 @@
                     <div class="faq-q">Is ₹199 really all-inclusive?</div>
                     <div class="faq-a">
                         Yes. ₹199 covers the entire reconstruction for one resume — design, content rewriting, and delivery in
-                        both formats.
+                        both formats. The year-end discount simply reduces your per-resume price from ₹299 to ₹199.
                     </div>
                 </div>
             </div>
@@ -1241,11 +1411,11 @@
 
                 <div style="display:flex;justify-content:center;gap:0.9rem;flex-wrap:wrap;">
                     <!-- Replace with your real email -->
-                    <a href="mailto:your-email@example.com?subject=Resume%20Reconstruction%20-%20₹199" class="btn btn-primary">
+                    <a href="mailto:your-email@example.com?subject=Resume%20Reconstruction%20-%20₹199%20Year-End%20Offer" class="btn btn-primary">
                         Email to get started
                     </a>
                     <!-- Replace WhatsApp number with your own (full international format, no + sign in URL) -->
-                    <a href="https://wa.me/910000000000?text=Hi%2C%20I%27d%20like%20to%20reconstruct%20my%20resume." target="_blank" class="btn btn-ghost">
+                    <a href="https://wa.me/910000000000?text=Hi%2C%20I%27d%20like%20to%20reconstruct%20my%20resume%20with%20the%20₹199%20year-end%20offer." target="_blank" class="btn btn-ghost">
                         Chat on WhatsApp
                     </a>
                 </div>
@@ -1272,7 +1442,7 @@
 
     <!-- ================ FLOATING CTA ================= -->
     <button class="floating-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-        <span>₹199 · Rebuild my resume</span>
+        <span>₹199 · Year-end resume rebuild</span>
     </button>
 
     <!-- ================ JS: ANIMATIONS ================= -->
@@ -1335,6 +1505,7 @@
     </script>
 </body>
 </html>
+
 
 
 
