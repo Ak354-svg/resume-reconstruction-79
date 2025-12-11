@@ -236,44 +236,87 @@
             }
         }
 
-        /* ================= THEME TOGGLE ================= */
+        /* ================= THEME TOGGLE (SWITCH) ================= */
         .theme-toggle {
             display: inline-flex;
             align-items: center;
-            gap: 0.35rem;
             padding-left: 1rem;
             margin-left: 0.5rem;
             border-left: 1px solid rgba(148, 163, 184, 0.5);
         }
 
-        .theme-btn {
+        .theme-toggle-btn {
+            position: relative;
+            width: 52px;
+            height: 26px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.9);
+            background: radial-gradient(circle at 30% 0%, rgba(56, 189, 248, 0.5), rgba(15, 23, 42, 0.9));
+            padding: 0;
+            cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 0.25rem;
-            padding: 0.25rem 0.7rem;
+            justify-content: center;
+            outline: none;
+            transition: background 0.2s ease-out, border-color 0.2s ease-out, box-shadow 0.2s ease-out;
+        }
+
+        .theme-toggle-btn:hover {
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.9);
+        }
+
+        .theme-toggle-knob {
+            position: absolute;
+            width: 20px;
+            height: 20px;
             border-radius: 999px;
-            border: 1px solid rgba(148, 163, 184, 0.7);
-            background: rgba(15, 23, 42, 0.8);
-            color: #e5e7eb;
-            font-size: 0.72rem;
-            cursor: pointer;
-            transition: background 0.18s ease-out, color 0.18s ease-out, transform 0.18s ease-out, box-shadow 0.18s ease-out, border-color 0.18s ease-out;
+            background: #f9fafb;
+            left: 3px;
+            transform: translateX(0);
+            transition: transform 0.2s ease-out, background 0.2s ease-out;
+            box-shadow: 0 6px 14px rgba(15, 23, 42, 0.6);
         }
 
-        .theme-btn span {
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
+        .theme-toggle-icon {
+            position: absolute;
+            font-size: 0.9rem;
+            opacity: 0.65;
+            transition: opacity 0.2s ease-out;
         }
 
-        .theme-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.9);
+        .theme-toggle-icon-left {
+            left: 7px;
         }
 
-        .theme-btn.active {
-            background: linear-gradient(135deg, #38bdf8, #a855f7);
-            border-color: rgba(248, 250, 252, 0.95);
-            color: #f9fafb;
+        .theme-toggle-icon-right {
+            right: 7px;
+        }
+
+        /* Dark mode default: moon visible, sun faint */
+        .theme-toggle-icon-left {
+            opacity: 1;
+        }
+
+        .theme-toggle-icon-right {
+            opacity: 0.4;
+        }
+
+        /* When LIGHT mode is active, move knob and flip icon emphasis */
+        body.theme-light .theme-toggle-btn {
+            background: radial-gradient(circle at 70% 0%, rgba(253, 224, 71, 0.7), #ffffff);
+            border-color: #e5e7eb;
+        }
+
+        body.theme-light .theme-toggle-knob {
+            transform: translateX(24px);
+        }
+
+        body.theme-light .theme-toggle-icon-left {
+            opacity: 0.4;
+        }
+
+        body.theme-light .theme-toggle-icon-right {
+            opacity: 1;
         }
 
         @media (max-width: 780px) {
@@ -398,7 +441,7 @@
         .hero-meta {
             font-size: 0.86rem;
             color: #9ca3af;
-            margin-bottom: 2rem;
+            margin-bottom: 1.3rem;
         }
 
         .hero-ctas {
@@ -406,7 +449,7 @@
             flex-wrap: wrap;
             gap: 1rem;
             align-items: center;
-            margin-bottom: 1.3rem;
+            margin-bottom: 1.1rem;
         }
 
         .btn {
@@ -455,6 +498,18 @@
         .hero-subnote span {
             font-weight: 600;
             color: #e5e7eb;
+        }
+
+        /* Live counter */
+        .hero-counter {
+            margin-top: 0.8rem;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        .hero-counter strong {
+            color: #e5e7eb;
+            font-weight: 600;
         }
 
         /* Hero right: card */
@@ -1294,8 +1349,25 @@
         body.theme-light .hero-lead,
         body.theme-light .hero-meta,
         body.theme-light .hero-subnote,
-        body.theme-light .section-subtitle {
+        body.theme-light .section-subtitle,
+        body.theme-light .hero-counter {
             color: #4b5563;
+        }
+
+        body.theme-light .hero-counter strong {
+            color: #111827;
+        }
+
+        body.theme-light .hero-badge {
+            background: #ffffff;
+            border-color: #e5e7eb;
+            color: #374151;
+        }
+
+        body.theme-light .hero-badge-offer {
+            background: #fee2e2;
+            border-color: #fecaca;
+            color: #b91c1c;
         }
 
         body.theme-light .tilt-card,
@@ -1323,6 +1395,36 @@
             color: #166534;
         }
 
+        /* Hero right card text */
+        body.theme-light .tilt-label {
+            color: #6b7280;
+        }
+
+        body.theme-light .tilt-title {
+            color: #111827;
+        }
+
+        body.theme-light .tilt-copy {
+            color: #4b5563;
+        }
+
+        body.theme-light .tilt-footer {
+            color: #6b7280;
+        }
+
+        body.theme-light .tilt-badge {
+            background: #f9fafb;
+            border-color: #e5e7eb;
+            color: #111827;
+        }
+
+        body.theme-light .tilt-pill {
+            background: #fee2e2;
+            border-color: #fecaca;
+            color: #b91c1c;
+        }
+
+        /* Features */
         body.theme-light .feature-card {
             background: #ffffff;
         }
@@ -1335,6 +1437,11 @@
             color: #4b5563;
         }
 
+        body.theme-light .feature-tag {
+            color: #6b7280;
+        }
+
+        /* Process */
         body.theme-light .step-card {
             background: #ffffff;
         }
@@ -1347,8 +1454,29 @@
             color: #4b5563;
         }
 
+        body.theme-light .step-label {
+            background: #f9fafb;
+            color: #374151;
+            border-color: #e5e7eb;
+        }
+
+        /* Pricing */
         body.theme-light .pricing-card {
             background: linear-gradient(135deg, #fefce8, #e0f2fe);
+        }
+
+        body.theme-light .pricing-left h3 {
+            color: #111827;
+        }
+
+        body.theme-light .pricing-left p {
+            color: #374151;
+        }
+
+        body.theme-light .pricing-badge {
+            background: #f9fafb;
+            color: #111827;
+            border-color: #e5e7eb;
         }
 
         body.theme-light .price-new {
@@ -1359,6 +1487,15 @@
             color: #6b7280;
         }
 
+        body.theme-light .price-tagline {
+            color: #15803d;
+        }
+
+        body.theme-light .price-note {
+            color: #374151;
+        }
+
+        /* Testimonials */
         body.theme-light .test-card {
             background: #ffffff;
         }
@@ -1367,8 +1504,16 @@
             color: #111827;
         }
 
+        body.theme-light .test-name {
+            color: #111827;
+        }
+
         body.theme-light .test-role {
             color: #6b7280;
+        }
+
+        body.theme-light .test-pagination {
+            color: #111827;
         }
 
         body.theme-light .test-pagination button {
@@ -1382,6 +1527,11 @@
             color: #f9fafb;
         }
 
+        body.theme-light .test-page-indicator {
+            color: #111827;
+        }
+
+        /* FAQ */
         body.theme-light .faq-item {
             background: #f9fafb;
         }
@@ -1394,6 +1544,7 @@
             color: #4b5563;
         }
 
+        /* Contact */
         body.theme-light .contact-inner {
             background: #ffffff;
         }
@@ -1403,6 +1554,13 @@
             color: #4b5563;
         }
 
+        body.theme-light .contact-badge {
+            background: #f9fafb;
+            color: #111827;
+            border-color: #e5e7eb;
+        }
+
+        /* Footer */
         body.theme-light footer {
             background: #f9fafb;
             border-top-color: #e5e7eb;
@@ -1413,21 +1571,10 @@
             color: #111827;
         }
 
+        /* Floating CTA */
         body.theme-light .floating-cta {
             background: linear-gradient(135deg, #0ea5e9, #6366f1);
             border-color: #e5e7eb;
-        }
-
-        body.theme-light .theme-btn {
-            background: #ffffff;
-            color: #111827;
-            border-color: #d1d5db;
-        }
-
-        body.theme-light .theme-btn.active {
-            background: linear-gradient(135deg, #0ea5e9, #6366f1);
-            color: #f9fafb;
-            border-color: #0ea5e9;
         }
     </style>
 </head>
@@ -1447,15 +1594,17 @@
                 <a href="#testimonials">Results</a>
                 <a href="#contact" class="nav-cta">Get Started</a>
 
-                <!-- THEME TOGGLE -->
+                <!-- THEME TOGGLE SWITCH -->
                 <div class="theme-toggle" aria-label="Toggle colour mode">
-                    <button type="button" class="theme-btn active" data-theme-toggle="dark">
-                        🌙
-                        <span>Dark</span>
-                    </button>
-                    <button type="button" class="theme-btn" data-theme-toggle="light">
-                        ☀
-                        <span>Light</span>
+                    <button
+                        type="button"
+                        class="theme-toggle-btn"
+                        id="theme-toggle-btn"
+                        aria-label="Switch to light mode"
+                    >
+                        <span class="theme-toggle-knob"></span>
+                        <span class="theme-toggle-icon theme-toggle-icon-left">🌙</span>
+                        <span class="theme-toggle-icon theme-toggle-icon-right">☀</span>
                     </button>
                 </div>
             </div>
@@ -1510,6 +1659,11 @@
 
                     <p class="hero-subnote">
                         <span>48-hour turnaround</span> · PDF + editable file · ATS-aware structure · Limited-time year-end pricing.
+                    </p>
+
+                    <!-- LIVE COUNTER -->
+                    <p class="hero-counter">
+                        Live: <strong><span id="resume-count">0</span> resumes</strong> reconstructed so far.
                     </p>
                 </div>
 
@@ -1881,7 +2035,7 @@
         <span>₹199 · Year-end resume rebuild</span>
     </button>
 
-    <!-- ================ JS: ANIMATIONS, PAGINATION, THEME ================= -->
+    <!-- ================ JS: ANIMATIONS, PAGINATION, THEME, COUNTER ================= -->
     <script>
         // Scroll reveal + staggered delays
         (function () {
@@ -1985,23 +2139,21 @@
             renderPage();
         })();
 
-        // ================= THEME SWITCHER =================
+        // ================= THEME SWITCHER (TOGGLE) =================
         (function () {
             const body = document.body;
-            const darkBtn = document.querySelector('[data-theme-toggle="dark"]');
-            const lightBtn = document.querySelector('[data-theme-toggle="light"]');
+            const toggleBtn = document.getElementById("theme-toggle-btn");
 
-            if (!darkBtn || !lightBtn) return;
+            if (!toggleBtn) return;
 
             function applyTheme(theme) {
                 if (theme === "light") {
                     body.classList.add("theme-light");
+                    toggleBtn.setAttribute("aria-label", "Switch to dark mode");
                 } else {
                     body.classList.remove("theme-light");
+                    toggleBtn.setAttribute("aria-label", "Switch to light mode");
                 }
-
-                darkBtn.classList.toggle("active", theme !== "light");
-                lightBtn.classList.toggle("active", theme === "light");
 
                 try {
                     localStorage.setItem("rs-theme", theme);
@@ -2021,25 +2173,39 @@
 
             applyTheme(initialTheme);
 
-            darkBtn.addEventListener("click", function () {
-                applyTheme("dark");
+            toggleBtn.addEventListener("click", function () {
+                const newTheme = body.classList.contains("theme-light") ? "dark" : "light";
+                applyTheme(newTheme);
             });
+        })();
 
-            lightBtn.addEventListener("click", function () {
-                applyTheme("light");
-            });
+        // ================= LIVE COUNTER (ANIMATED) =================
+        (function () {
+            const counterEl = document.getElementById("resume-count");
+            if (!counterEl) return;
+
+            const target = 286; // total resumes improved till now (editable)
+            let current = 0;
+            const duration = 2000; // ms
+
+            const startTime = performance.now();
+
+            function tick(now) {
+                const progress = Math.min((now - startTime) / duration, 1);
+                const value = Math.floor(progress * target);
+
+                if (value !== current) {
+                    current = value;
+                    counterEl.textContent = current.toLocaleString("en-IN");
+                }
+
+                if (progress < 1) {
+                    requestAnimationFrame(tick);
+                }
+            }
+
+            requestAnimationFrame(tick);
         })();
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
