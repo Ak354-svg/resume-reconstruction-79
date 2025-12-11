@@ -113,13 +113,13 @@
             color: var(--text-muted);
         }
 
-        /* colourful background shapes per section */
+        /* colourful background shapes per section (dark mode) */
         section::before {
             content: "";
             position: absolute;
             inset: 0;
             pointer-events: none;
-            opacity: 0.2;
+            opacity: 0.18;
             z-index: -1;
             background:
                 radial-gradient(circle at 10% 0%, rgba(248, 113, 113, 0.18), transparent 60%),
@@ -441,7 +441,7 @@
         .hero-meta {
             font-size: 0.86rem;
             color: #9ca3af;
-            margin-bottom: 1.3rem;
+            margin-bottom: 1.1rem;
         }
 
         .hero-ctas {
@@ -449,7 +449,7 @@
             flex-wrap: wrap;
             gap: 1rem;
             align-items: center;
-            margin-bottom: 1.1rem;
+            margin-bottom: 0.9rem;
         }
 
         .btn {
@@ -467,7 +467,7 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #38bdf8, #a855f7);
+            background: linear-gradient(135deg, #38bdf8, #6366f1);
             color: #f9fafb;
             box-shadow: 0 18px 50px rgba(56, 189, 248, 0.65);
         }
@@ -485,7 +485,7 @@
 
         .btn-ghost:hover {
             background: rgba(15, 23, 42, 1);
-            border-color: rgba(248, 113, 113, 0.9);
+            border-color: rgba(148, 163, 184, 0.9);
             transform: translateY(-1px);
             box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
         }
@@ -500,16 +500,59 @@
             color: #e5e7eb;
         }
 
-        /* Live counter */
+        /* Live counter – big, bold, "live" */
         .hero-counter {
-            margin-top: 0.8rem;
-            font-size: 0.82rem;
-            color: var(--text-muted);
+            margin-top: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.45rem 1rem;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(148, 163, 184, 0.8);
+            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.9);
         }
 
-        .hero-counter strong {
+        .hero-counter-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: #22c55e;
+            box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.25);
+            animation: pulse-live 1.4s infinite;
+        }
+
+        @keyframes pulse-live {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .hero-counter-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+        }
+
+        .hero-counter-label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #9ca3af;
+        }
+
+        .hero-counter-number {
+            font-size: 1.7rem;
+            font-weight: 700;
+            line-height: 1;
+            background: linear-gradient(120deg, #bef264, #22c55e, #4ade80);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero-counter-caption {
+            font-size: 0.72rem;
             color: #e5e7eb;
-            font-weight: 600;
         }
 
         /* Hero right: card */
@@ -1138,7 +1181,7 @@
         }
 
         .test-pagination button:hover:not(:disabled) {
-            background: linear-gradient(135deg, #38bdf8, #a855f7);
+            background: linear-gradient(135deg, #38bdf8, #6366f1);
             transform: translateY(-1px);
             box-shadow: 0 15px 35px rgba(15, 23, 42, 0.9);
         }
@@ -1266,7 +1309,7 @@
             gap: 0.4rem;
             padding: 0.8rem 1.5rem;
             border-radius: 999px;
-            background: linear-gradient(135deg, #38bdf8, #a855f7);
+            background: linear-gradient(135deg, #38bdf8, #6366f1);
             color: #f9fafb;
             font-size: 0.84rem;
             font-weight: 500;
@@ -1303,12 +1346,21 @@
 
         /* ================= LIGHT MODE OVERRIDES ================= */
         body.theme-light {
-            background: radial-gradient(circle at top, #f9fafb 0, #e5e7eb 40%, #d1d5db 100%);
+            background: #f3f4f6;
             color: #111827;
         }
 
+        /* Kill most heavy gradients in light mode for clarity */
+        body.theme-light section::before,
+        body.theme-light .hero::before,
+        body.theme-light .test-inner::before,
+        body.theme-light .pricing-card::before,
+        body.theme-light .test-card::before {
+            display: none;
+        }
+
         body.theme-light .nav {
-            background: rgba(249, 250, 251, 0.9);
+            background: rgba(249, 250, 251, 0.96);
             border-bottom: 1px solid #e5e7eb;
             box-shadow: 0 10px 30px rgba(148, 163, 184, 0.3);
         }
@@ -1349,13 +1401,8 @@
         body.theme-light .hero-lead,
         body.theme-light .hero-meta,
         body.theme-light .hero-subnote,
-        body.theme-light .section-subtitle,
-        body.theme-light .hero-counter {
+        body.theme-light .section-subtitle {
             color: #4b5563;
-        }
-
-        body.theme-light .hero-counter strong {
-            color: #111827;
         }
 
         body.theme-light .hero-badge {
@@ -1370,6 +1417,28 @@
             color: #b91c1c;
         }
 
+        /* Live counter in light mode */
+        body.theme-light .hero-counter {
+            background: #ffffff;
+            border-color: #e5e7eb;
+            box-shadow: 0 10px 26px rgba(148, 163, 184, 0.35);
+        }
+
+        body.theme-light .hero-counter-label {
+            color: #6b7280;
+        }
+
+        body.theme-light .hero-counter-number {
+            background: linear-gradient(120deg, #22c55e, #16a34a);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        body.theme-light .hero-counter-caption {
+            color: #111827;
+        }
+
+        /* Common cards in light mode */
         body.theme-light .tilt-card,
         body.theme-light .feature-card,
         body.theme-light .step-card,
@@ -1379,7 +1448,7 @@
         body.theme-light .contact-inner {
             background: #ffffff;
             border-color: #e5e7eb;
-            box-shadow: 0 18px 40px rgba(148, 163, 184, 0.3);
+            box-shadow: 0 18px 40px rgba(148, 163, 184, 0.25);
             color: #111827;
         }
 
@@ -1576,6 +1645,17 @@
             background: linear-gradient(135deg, #0ea5e9, #6366f1);
             border-color: #e5e7eb;
         }
+
+        body.theme-light .btn-ghost {
+            background: #ffffff;
+            color: #111827;
+            border-color: #d1d5db;
+        }
+
+        body.theme-light .btn-ghost:hover {
+            background: #f9fafb;
+            border-color: #9ca3af;
+        }
     </style>
 </head>
 <body>
@@ -1662,9 +1742,14 @@
                     </p>
 
                     <!-- LIVE COUNTER -->
-                    <p class="hero-counter">
-                        Live: <strong><span id="resume-count">0</span> resumes</strong> reconstructed so far.
-                    </p>
+                    <div class="hero-counter">
+                        <span class="hero-counter-dot"></span>
+                        <div class="hero-counter-text">
+                            <span class="hero-counter-label">Live resumes improved</span>
+                            <span class="hero-counter-number" id="resume-count">0</span>
+                            <span class="hero-counter-caption">and counting…</span>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- RIGHT: CARD -->
@@ -2184,7 +2269,7 @@
             const counterEl = document.getElementById("resume-count");
             if (!counterEl) return;
 
-            const target = 286; // total resumes improved till now (editable)
+            const target = 286; // total resumes improved till now (edit this number)
             let current = 0;
             const duration = 2000; // ms
 
